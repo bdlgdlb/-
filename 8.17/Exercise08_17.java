@@ -38,7 +38,7 @@ public class Exercise08_17 {
 				if (isSafe[i] && asset[i] < limit){
 					isSafe[i] = false;
 					newUnsafeFound = true;
-					System.out.print(i + " "+asset[i]);
+					System.out.print(i + " ");
 
 					for (int k = 0; k < n; k++){
 						borrowers[k][i] = 0;
