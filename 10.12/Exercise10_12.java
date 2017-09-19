@@ -12,5 +12,5 @@ public class Exercise10_12{
 		The triangle area of t1 is:0.02500000000000299 perimeter is : 5.831182352959913
 		false
 		false
-		false
+		true
  */

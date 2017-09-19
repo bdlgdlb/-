@@ -137,14 +137,15 @@ public class Triangle2D{
 		Line2D side2 = new Line2D.Double(p1.getX(), p1.getY(), p3.getX(), p3.getY());
 		Line2D side3 = new Line2D.Double(p2.getX(), p2.getY(), p3.getX(), p3.getY());
 
-		return  line1.intersectsLine(side1) && 
-		        line1.intersectsLine(side2) && 
-		        line1.intersectsLine(side3) && 
-		        line2.intersectsLine(side1) && 
-		        line2.intersectsLine(side2) && 
-		        line2.intersectsLine(side3) &&
-		        line3.intersectsLine(side1) && 
-		        line3.intersectsLine(side2) && 
+		return  contains(t) || t.contains(this) ||
+				line1.intersectsLine(side1) || 
+		        line1.intersectsLine(side2) || 
+		        line1.intersectsLine(side3) || 
+		        line2.intersectsLine(side1) || 
+		        line2.intersectsLine(side2) || 
+		        line2.intersectsLine(side3) ||
+		        line3.intersectsLine(side1) || 
+		        line3.intersectsLine(side2) || 
 		        line3.intersectsLine(side3);
 		    
 	}
