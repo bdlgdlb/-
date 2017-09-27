@@ -34,7 +34,7 @@
 		this.balance = balance;
 	}
 
-	public double getAnnualInteresstRate(){
+	public double getAnnualInterestRate(){
 		return annualInterestRate;
 	}
 
@@ -50,7 +50,7 @@
 		return annualInterestRate / 12;
 	}
 
-	public void withDraw(double amount){
+	public void withdraw(double amount){
 		balance -= amount;
 	}
 

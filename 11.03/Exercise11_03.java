@@ -8,9 +8,9 @@ public class Exercise11_03{
 		savings.setAnnualInterestRate(4.5);
 		checking.setAnnualInterestRate(4.5);
 
-		account.withDraw(2500);
-		savings.withDraw(2500);
-		checking.withDraw(2500);
+		account.withdraw(2500);
+		savings.withdraw(2500);
+		checking.withdraw(2500);
 
 		account.deposit(3000);
 		savings.deposit(3000);
