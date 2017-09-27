@@ -5,7 +5,7 @@ public class Exercise09_07{
 		Account account = new Account(1122,20000);
 
 		account.setAnnualInterestRate(4.5);
-		account.withDraw(2500);
+		account.withdraw(2500);
 		account.deposit(3000);
 
 		System.out.println("\n          Account Statement");
@@ -63,7 +63,7 @@ class Account{
 		this.balance = balance;
 	}
 
-	public double getAnnualInteresstRate(){
+	public double getAnnualInterestRate(){
 		return annualInterestRate;
 	}
 
@@ -79,7 +79,7 @@ class Account{
 		return annualInterestRate / 12;
 	}
 
-	public void withDraw(double amount){
+	public void withdraw(double amount){
 		balance -= amount;
 	}
 
