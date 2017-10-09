@@ -7,34 +7,34 @@ public class Exercise12_17{
 
 		String play;
 		do {
-			// Generate a random word 
+			// 随机生成一个单词
 			char[] word = getWord();
 			
-			// Display each letter in the word as an asterisk.
+			// 用星号显示每个字母
 			char[] asterisks = new char[word.length];
 			fillAsterisks(asterisks);
 
-			int missed = 0; // number of wrong guesses
+			int missed = 0; // 猜错的次数
 			do {
 				// Prompt the user to guess one letter
 				char guess = getGuess(asterisks);		
 				
-				// Check if is letter is correct
+				// 检查字母是否正确
 				if (!isCorrectGuess(word, asterisks, guess))
 					missed++;
 					
 			} while (!isWordFinish(asterisks));
 			
-			// Print results
+			// 打印结果
 			print(word, missed);
 			
-			// Ask the user whether to continue to play with another word
+			// 询问用户是否要进行下一次猜单词
 			System.out.println("Do you want to guess another word? Enter y or n>");
 			play = input.next();
 
 		} while (play.charAt(0) == 'y');
 	}
-	/** getWord randomly generates a word from a file */
+	/** getWord 从文件中随机选一个单词生成 */
 	public static char[] getWord() throws FileNotFoundException {
 		File file = openFile();
 		
@@ -47,18 +47,17 @@ public class Exercise12_17{
 			}
 		}
 
-		//Pick a random String
+		//随机选一个单词
 		String s = list.get((int) (Math.random()* list.size()));
 
 		char[] word = s.toCharArray();
 		return word;
 	}
 
-	/** Return File object */
+	/** 返回文件对象 */
 	public static File openFile() throws FileNotFoundException {
 		File file = new File("hangman.txt");
 
-		// Check if file exists
 		if (!file.exists()) {
 			System.out.print("File " + file.getName() + " does not exist");
 			System.exit(1);
@@ -66,14 +65,14 @@ public class Exercise12_17{
 		return file;
 	}
 
-	/** fillAsterisks initializes a list with asterisks */
+	/** fillAsterisks 用星号对单词初始化 */
 	public static void fillAsterisks(char[] array){
 		for (int i = 0; i < array.length; i++) {
 			array[i] = '*';
 		}
 	}
 
-	/** checkGuess tests if the users guess was correct */
+	/** 检查用户是否猜对 */
 	public static boolean isCorrectGuess(char[] word, char[] blanks, char guess) {
 		boolean correct = false;
 		int message = 2;
@@ -83,7 +82,7 @@ public class Exercise12_17{
 				if (blanks[i] == guess)
 					message = 1;
 				else { 
-					blanks[i] = guess; // the actual letter is then displayed.
+					blanks[i] = guess; // 将实际的字母显示出来
 					message = 0;
 				}
 			}
@@ -93,7 +92,7 @@ public class Exercise12_17{
 		return correct;
 	}
 
-	/** isWordFinish */
+	/** 检查单词是否猜完 */
 	public static boolean isWordFinish(char[] blanks) {
 		for (char e: blanks) {
 			if (e == '*')
@@ -119,7 +118,7 @@ public class Exercise12_17{
 		}
 	}
 
-	/** getGuess prompts the user to guess one letter at a time */
+	/** 用户每猜一个单词都提示一遍 */
 	public static char getGuess(char[] asterisks){
 		Scanner input = new Scanner(System.in);
 		System.out.print("(Guess) Enter a letter in word ");
